@@ -178,5 +178,157 @@
 		<servlet-name>Sessionb</servlet-name>
 		<url-pattern>/asession</url-pattern>
 	</servlet-mapping>
-	
+	  <servlet>
+    <servlet-name>PreExistingSession</servlet-name>
+    <servlet-class>PreExistingSession</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PreExistingSession</servlet-name>
+    <url-pattern>/PreExistingSession</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>AccessTimeSession</servlet-name>
+    <servlet-class>AccessTimeSession</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AccessTimeSession</servlet-name>
+    <url-pattern>/AccessTimeSession</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ValueSession</servlet-name>
+    <servlet-class>ValueSession</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ValueSession</servlet-name>
+    <url-pattern>/ValueSession</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>CounterSessionServlet</servlet-name>
+    <servlet-class>CounterSessionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CounterSessionServlet</servlet-name>
+    <url-pattern>/CounterSessionServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ServletInsertingData</servlet-name>
+    <servlet-class>ServletInsertingData</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletInsertingData</servlet-name>
+    <url-pattern>/ServletInsertingData</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ServletFetchingData</servlet-name>
+    <servlet-class>ServletFetchingData</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletFetchingData</servlet-name>
+    <url-pattern>/ServletFetchingData</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ServletInsertingDataUsingHtml</servlet-name>
+    <servlet-class>ServletInsertingDataUsingHtml</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletInsertingDataUsingHtml</servlet-name>
+    <url-pattern>/ServletInsertingDataUsingHtml</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ServletFetchingDataFromDatabase</servlet-name>
+    <servlet-class>ServletFetchingDataFromDatabase</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletFetchingDataFromDatabase</servlet-name>
+    <url-pattern>/ServletFetchingDataFromDatabase</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ServletNaturalJoiningTables</servlet-name>
+    <servlet-class>ServletNaturalJoiningTables</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletNaturalJoiningTables</servlet-name>
+    <url-pattern>/ServletNaturalJoiningTables</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ServletCookies</servlet-name>
+    <servlet-class>ServletCookies</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletCookies</servlet-name>
+    <url-pattern>/ServletCookies</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>AccessServletCookie</servlet-name>
+    <servlet-class>AccessServletCookie</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AccessServletCookie</servlet-name>
+    <url-pattern>/AccessServletCookie</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>HiddenFormField</servlet-name>
+    <servlet-class>HiddenFormField</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HiddenFormField</servlet-name>
+    <url-pattern>/HiddenFormField</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>AccessHiddenFormField</servlet-name>
+    <servlet-class>AccessHiddenFormField</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AccessHiddenFormField</servlet-name>
+    <url-pattern>/AccessHiddenFormField</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>AccessURLdata</servlet-name>
+    <servlet-class>AccessURLdata</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AccessURLdata</servlet-name>
+    <url-pattern>/AccessURLdata</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>URLRewriting</servlet-name>
+    <servlet-class>URLRewriting</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>URLRewriting</servlet-name>
+    <url-pattern>/URLRewriting</url-pattern>
+  </servlet-mapping>
+
+  <servlet>  
+    <servlet-name>loggedIn</servlet-name>  
+    <servlet-class>loggedIn</servlet-class>  
+  </servlet>  
+  
+  <servlet-mapping>  
+    <servlet-name>loggedIn</servlet-name>  
+    <url-pattern>/loggedIn</url-pattern>  
+  </servlet-mapping>  
+    
+  <filter>  
+    <filter-name>loginFilter</filter-name>  
+    <filter-class>loginFilter</filter-class>  
+  </filter>  
+  <filter-mapping>  
+    <filter-name>loginFilter</filter-name>  
+    <url-pattern>/loggedIn</url-pattern>  
+  </filter-mapping>  
 </web-app>
