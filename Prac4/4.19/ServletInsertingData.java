@@ -1,82 +1,50 @@
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-
-import javax.servlet.ServletException;
+import java.io.*;
+import java.sql.*;
+import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-/**
- * Servlet implementation class ServletInsertingData
- */
+import javax.servlet.http.*;
 @WebServlet("/ServletInsertingData")
-public class ServletInsertingData extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	static final String JDBC_DRIVER = "org.postgresql.Driver";
-	static final String DB_URL = "jdbc:postgresql://127.0.0.1:5432/s2c130050131051";
-
-	static final String USER = "postgres";
-	static final String PASS = "harshpanchal";
-
-	Connection Conn;
-	Statement stmt;
-
+public class ServletInsertingData extends HttpServlet{
+	final String JDBC_DRIVER = "org.postgresql.Driver";
 	
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		PrintWriter out = response.getWriter();
-		response.setContentType("text/html");
-		
-		try {
-			Class.forName(JDBC_DRIVER);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		try {
-			Conn=DriverManager.getConnection(DB_URL, USER, PASS);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			stmt = Conn.createStatement();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		String sql="INSERT INTO registration VALUES(51,'harsh','cse')";
-		try {
-			stmt.executeUpdate(sql);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		out.println("Enroll no: 130050131051");
-		
+	private static final long serialVersionUID = 1L;
 
-		out.println("Values Inserted Successfuly");
-	}
+public void doGet(HttpServletRequest request, 
+  HttpServletResponse response)throws 
+  ServletException, IOException{  
+  response.setContentType("text/html");
+  PrintWriter out = response.getWriter();
+   final String DB_URL = "jdbc:postgresql://127.0.0.1:5432/s2c130050131051";
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request,response);
-	}
+
+   final String USER = "postgres";
+   final String PASS = "harshpanchal";
+
+  Connection conn;
+  ResultSet rs;
+  try{
+  Class.forName("org.postgresql.Driver");
+  conn = DriverManager.getConnection(DB_URL, USER, PASS);
+  Statement statement = conn.createStatement();
+  String query = "insert into registration values(55,'hp', 'cse')";
+  int i = statement.executeUpdate(query);
+  if(i!=0){
+  out.println("The record has been inserted");
+  }
+  else{
+  out.println("Sorry! Failure");
+  }
+  rs = statement.executeQuery("select * from registration");
+  while(rs.next()){
+  out.println("<p><table>" + rs.getInt(1) + " " 
+  + rs.getString(2) + " "+rs.getString(3)+"</p></table>");
+  }
+  rs.close();
+  statement.close();
+  }
+  catch (Exception e){
+  System.out.println(e);
+  }
+  }
 }
